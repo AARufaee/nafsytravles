@@ -1,0 +1,135 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #0a1130;
+
+  /* Brand palette, sampled from the Nafsy Travels logo */
+  --brand-navy: #0a1130;
+  --brand-navy-2: #101d54;
+  --brand-blue: #1c3fa8;
+  --brand-blue-light: #2f6fe0;
+  --brand-cyan: #34b8f0;
+  --brand-cyan-light: #7fdcff;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-brand-navy: var(--brand-navy);
+  --color-brand-navy-2: var(--brand-navy-2);
+  --color-brand-blue: var(--brand-blue);
+  --color-brand-blue-light: var(--brand-blue-light);
+  --color-brand-cyan: var(--brand-cyan);
+  --color-brand-cyan-light: var(--brand-cyan-light);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-14px); }
+}
+
+.animate-float-slow {
+  animation: float-slow 6s ease-in-out infinite;
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 50s linear infinite;
+}
+
+@keyframes orbit-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-orbit-spin {
+  animation: orbit-spin 28s linear infinite;
+}
+
+@keyframes orbit-spin-reverse {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+.animate-orbit-spin-reverse {
+  animation: orbit-spin-reverse 21s linear infinite;
+}
+
+@keyframes plan-orbit {
+  0% {
+    transform: translate(-50%, -50%) translate(0, calc(var(--orbit-r) * 0.55)) scale(1.1);
+    opacity: 1;
+    z-index: 28;
+  }
+  12.5% {
+    transform: translate(-50%, -50%)
+      translate(calc(var(--orbit-r) * 0.7), calc(var(--orbit-r) * 0.3)) scale(1);
+    opacity: 1;
+    z-index: 26;
+  }
+  25% {
+    transform: translate(-50%, -50%) translate(var(--orbit-r), 0) scale(0.8);
+    opacity: 0.85;
+    z-index: 15;
+  }
+  37.5% {
+    transform: translate(-50%, -50%)
+      translate(calc(var(--orbit-r) * 0.7), calc(var(--orbit-r) * -0.3)) scale(0.5);
+    opacity: 0.4;
+    z-index: 5;
+  }
+  50% {
+    transform: translate(-50%, -50%) translate(0, calc(var(--orbit-r) * -0.55)) scale(0.4);
+    opacity: 0.25;
+    z-index: 1;
+  }
+  62.5% {
+    transform: translate(-50%, -50%)
+      translate(calc(var(--orbit-r) * -0.7), calc(var(--orbit-r) * -0.3)) scale(0.5);
+    opacity: 0.4;
+    z-index: 5;
+  }
+  75% {
+    transform: translate(-50%, -50%) translate(calc(var(--orbit-r) * -1), 0) scale(0.8);
+    opacity: 0.85;
+    z-index: 15;
+  }
+  87.5% {
+    transform: translate(-50%, -50%)
+      translate(calc(var(--orbit-r) * -0.7), calc(var(--orbit-r) * 0.3)) scale(1);
+    opacity: 1;
+    z-index: 26;
+  }
+  100% {
+    transform: translate(-50%, -50%) translate(0, calc(var(--orbit-r) * 0.55)) scale(1.1);
+    opacity: 1;
+    z-index: 28;
+  }
+}
+
+.animate-plan-orbit {
+  animation: plan-orbit 26s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-float-slow,
+  .animate-spin-slow,
+  .animate-orbit-spin,
+  .animate-orbit-spin-reverse,
+  .animate-plan-orbit {
+    animation: none;
+  }
+}
