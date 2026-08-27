@@ -12,6 +12,9 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Plain browser JS (static frontend) and vendored third-party bundles —
+    // not part of the Next.js/React app, shouldn't be linted with React rules.
+    "public/**",
   ]),
 ]);
 

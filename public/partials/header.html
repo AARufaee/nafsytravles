@@ -1,0 +1,39 @@
+<header class="relative border-b border-brand-navy/10 bg-white/80 backdrop-blur sticky top-0 z-50">
+  <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-3">
+    <a href="/" class="flex items-center">
+      <img src="/images/logo.png" alt="Nafsy Travels" class="h-10 w-auto" />
+    </a>
+
+    <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-brand-navy/70">
+      <a href="/packages" class="hover:text-brand-navy transition-colors">Packages</a>
+      <a href="/packages?category=Hajj+%26+Umrah" class="hover:text-brand-navy transition-colors">Hajj &amp; Umrah</a>
+      <a href="/request" class="hover:text-brand-navy transition-colors">Custom Request</a>
+    </nav>
+
+    <button
+      type="button"
+      data-nav-toggle
+      class="md:hidden p-2 text-brand-navy"
+      aria-label="Toggle menu"
+      aria-expanded="false"
+    >
+      <svg data-icon-open class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="4" y1="6" x2="20" y2="6"></line>
+        <line x1="4" y1="12" x2="20" y2="12"></line>
+        <line x1="4" y1="18" x2="20" y2="18"></line>
+      </svg>
+      <svg data-icon-close class="hidden h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+        <line x1="6" y1="18" x2="18" y2="6"></line>
+      </svg>
+    </button>
+
+    <div data-nav-menu class="hidden md:hidden absolute top-full left-0 right-0 border-b border-brand-navy/10 bg-white shadow-lg">
+      <div class="flex flex-col gap-1 px-6 py-4">
+        <a href="/packages" class="rounded-lg px-3 py-2.5 text-sm font-medium text-brand-navy/80 hover:bg-brand-navy/5">Packages</a>
+        <a href="/packages?category=Hajj+%26+Umrah" class="rounded-lg px-3 py-2.5 text-sm font-medium text-brand-navy/80 hover:bg-brand-navy/5">Hajj &amp; Umrah</a>
+        <a href="/request" class="rounded-lg px-3 py-2.5 text-sm font-medium text-brand-navy/80 hover:bg-brand-navy/5">Custom Request</a>
+      </div>
+    </div>
+  </div>
+</header>

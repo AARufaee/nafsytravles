@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en" class="h-full">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Request a custom trip — Nafsy Travels</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body class="min-h-full flex flex-col antialiased bg-white text-zinc-900">
+  <div data-include="/partials/header.html"></div>
+
+  <main class="flex-1 flex flex-col">
+    <div class="mx-auto max-w-2xl px-6 py-16 w-full flex-1">
+      <h1 class="text-3xl font-semibold text-brand-navy">Request a custom trip</h1>
+      <p class="mt-2 text-brand-navy/60">
+        Tell us where you&rsquo;d like to go and we&rsquo;ll put together a quote and follow up by email.
+      </p>
+
+      <div data-context-banner class="hidden mt-4 inline-flex rounded-full bg-brand-cyan/10 border border-brand-cyan/30 px-4 py-1.5 text-sm font-medium text-brand-navy"></div>
+
+      <form data-request-form class="mt-8 rounded-xl border border-brand-navy/10 p-6 flex flex-col gap-4">
+        <label class="flex flex-col gap-1 text-sm">Destination / trip idea
+          <input name="destination" data-destination-input required placeholder="e.g. Two weeks in Japan" class="rounded-lg border border-brand-navy/20 px-3 py-2 text-sm" />
+        </label>
+        <label class="flex flex-col gap-1 text-sm">Full name
+          <input name="guestName" required class="rounded-lg border border-brand-navy/20 px-3 py-2 text-sm" />
+        </label>
+        <label class="flex flex-col gap-1 text-sm">Email
+          <input type="email" name="guestEmail" required class="rounded-lg border border-brand-navy/20 px-3 py-2 text-sm" />
+        </label>
+        <label class="flex flex-col gap-1 text-sm">Phone
+          <input name="guestPhone" required class="rounded-lg border border-brand-navy/20 px-3 py-2 text-sm" />
+        </label>
+        <div class="grid grid-cols-2 gap-3">
+          <label class="flex flex-col gap-1 text-sm">Preferred travel date
+            <input type="date" name="travelDate" required class="rounded-lg border border-brand-navy/20 px-3 py-2 text-sm" />
+          </label>
+          <label class="flex flex-col gap-1 text-sm">Travelers
+            <input type="number" name="travelersCount" min="1" max="50" value="1" required class="rounded-lg border border-brand-navy/20 px-3 py-2 text-sm" />
+          </label>
+        </div>
+        <label class="flex flex-col gap-1 text-sm">Tell us more (optional)
+          <textarea name="notes" data-notes-input rows="4" placeholder="Budget, must-see stops, special occasions, etc." class="rounded-lg border border-brand-navy/20 px-3 py-2 text-sm"></textarea>
+        </label>
+
+        <button type="submit" class="mt-2 rounded-full bg-gradient-to-r from-brand-blue to-brand-cyan text-white px-6 py-3 font-medium hover:opacity-90 transition-opacity">Submit request</button>
+        <p data-request-success class="hidden text-sm text-emerald-600">Thanks! We&rsquo;ve got your request and will follow up by email with a quote.</p>
+      </form>
+    </div>
+  </main>
+
+  <div data-include="/partials/footer.html"></div>
+
+  <script type="module" src="/js/include-partials.js"></script>
+  <script type="module" src="/js/pages/request.js"></script>
+</body>
+</html>

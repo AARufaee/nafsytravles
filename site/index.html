@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="en" class="h-full">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nafsy Travels</title>
+  <meta name="description" content="Browse travel packages, request a custom trip, and book your next journey with Nafsy Travels." />
+  <link rel="stylesheet" href="/css/styles.css" />
+  <script type="importmap">
+    { "imports": { "three": "/vendor/three/three.module.js" } }
+  </script>
+</head>
+<body class="min-h-full flex flex-col antialiased bg-white text-zinc-900">
+  <div data-include="/partials/header.html"></div>
+
+  <main class="flex-1 flex flex-col">
+    <div class="flex flex-col flex-1">
+      <section class="relative overflow-hidden bg-brand-navy text-white">
+        <div
+          class="pointer-events-none absolute inset-0 z-0 opacity-60"
+          style="background: radial-gradient(60% 60% at 80% 20%, rgba(52,184,240,0.25), transparent), radial-gradient(50% 50% at 10% 80%, rgba(28,63,168,0.35), transparent);"
+        ></div>
+
+        <div class="pointer-events-none absolute inset-0 z-[15] bg-gradient-to-b from-brand-navy/60 via-brand-navy/10 to-brand-navy"></div>
+
+        <div class="relative z-40 mx-auto max-w-6xl px-6 pt-16 pb-16 sm:pt-20 sm:pb-24 grid gap-10 lg:grid-cols-2 lg:items-center">
+          <div class="relative order-2 mx-auto aspect-square w-full max-w-[420px] sm:max-w-[480px] lg:order-1 lg:mx-0 lg:max-w-[520px]">
+            <div data-globe-fallback class="h-full w-full">
+              <div class="relative h-full w-full flex items-center justify-center">
+                <div
+                  class="h-56 w-56 sm:h-72 sm:w-72 rounded-full relative overflow-hidden animate-spin-slow"
+                  style="background: radial-gradient(35% 35% at 35% 30%, rgba(127,220,255,0.35), transparent 60%), radial-gradient(circle at 50% 50%, #2f6fe0, #101d54 70%); box-shadow: 0 0 60px 10px rgba(52,184,240,0.25);"
+                >
+                  <div
+                    class="absolute inset-0 opacity-30"
+                    style="background-image: repeating-linear-gradient(0deg, transparent, transparent 15px, rgba(127,220,255,0.5) 15px, rgba(127,220,255,0.5) 16px), repeating-linear-gradient(90deg, transparent, transparent 15px, rgba(127,220,255,0.5) 15px, rgba(127,220,255,0.5) 16px);"
+                  ></div>
+                  <span class="absolute rounded-[42%] bg-brand-cyan-light" style="top:20%;left:10%;width:30%;height:22%;opacity:0.55"></span>
+                  <span class="absolute rounded-[42%] bg-brand-cyan-light" style="top:48%;left:20%;width:16%;height:20%;opacity:0.55"></span>
+                  <span class="absolute rounded-[42%] bg-brand-cyan-light" style="top:24%;left:44%;width:22%;height:26%;opacity:0.55"></span>
+                  <span class="absolute rounded-[42%] bg-brand-cyan-light" style="top:16%;left:50%;width:14%;height:12%;opacity:0.35"></span>
+                  <span class="absolute rounded-[42%] bg-brand-cyan-light" style="top:18%;left:62%;width:28%;height:24%;opacity:0.55"></span>
+                  <span class="absolute rounded-[42%] bg-brand-cyan-light" style="top:58%;left:72%;width:14%;height:10%;opacity:0.35"></span>
+                </div>
+                <div class="absolute inset-0 animate-orbit-spin">
+                  <svg viewBox="0 0 24 24" class="absolute top-1/2 left-1/2 h-6 w-6 text-brand-cyan-light" style="transform: translate(-50%, -50%) translateX(150px) rotate(90deg);" fill="currentColor">
+                    <path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2.5 1.5V22l4-1 4 1v-1.5L13 19v-5.5l8 2.5z" />
+                  </svg>
+                </div>
+                <div class="absolute inset-0 animate-orbit-spin-reverse">
+                  <svg viewBox="0 0 24 24" class="absolute top-1/2 left-1/2 h-4 w-4 text-brand-cyan-light/70" style="transform: translate(-50%, -50%) translateX(105px) rotate(90deg);" fill="currentColor">
+                    <path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2.5 1.5V22l4-1 4 1v-1.5L13 19v-5.5l8 2.5z" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <div data-globe-canvas class="hidden h-full w-full touch-none"></div>
+          </div>
+
+          <div class="order-1 flex flex-col items-center text-center gap-6 lg:order-2 lg:items-start lg:text-left">
+            <span class="rounded-full border border-brand-cyan/40 bg-brand-cyan/10 px-3 py-1 text-xs font-medium text-brand-cyan-light">
+              Travels · Tours · Transports
+            </span>
+            <h1 class="text-4xl sm:text-5xl font-semibold tracking-tight max-w-2xl">
+              Your next trip, planned and booked in one place.
+            </h1>
+            <p class="text-lg text-white/70 max-w-xl">
+              Packages, Hajj &amp; Umrah, visa assistance, or a trip built from
+              scratch — search below and we&rsquo;ll take it from there.
+            </p>
+
+            <div class="w-full mt-2">
+              <div data-search-widget class="rounded-2xl bg-white shadow-xl shadow-brand-navy/20 p-2 sm:p-3 w-full">
+                <div class="flex gap-1 overflow-x-auto">
+                  <button type="button" data-tab="packages" class="flex items-center gap-1 whitespace-nowrap rounded-xl px-2.5 py-2 text-xs font-medium transition-colors bg-brand-navy text-white">
+                    <svg class="h-3.5 w-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-1 .1-1.3.5l-.6.6c-.5.5-.4 1.4.3 1.7L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.2 5.8c.3.7 1.2.8 1.7.3l.6-.6c.4-.3.6-.8.5-1.3Z"/></svg>
+                    Packages
+                  </button>
+                  <button type="button" data-tab="hajj" class="flex items-center gap-1 whitespace-nowrap rounded-xl px-2.5 py-2 text-xs font-medium transition-colors text-brand-navy/60 hover:bg-brand-navy/5">
+                    <svg class="h-3.5 w-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="22" x2="21" y2="22"/><line x1="6" y1="18" x2="6" y2="11"/><line x1="10" y1="18" x2="10" y2="11"/><line x1="14" y1="18" x2="14" y2="11"/><line x1="18" y1="18" x2="18" y2="11"/><polygon points="12 2 20 7 4 7"/></svg>
+                    Hajj &amp; Umrah
+                  </button>
+                  <button type="button" data-tab="visa" class="flex items-center gap-1 whitespace-nowrap rounded-xl px-2.5 py-2 text-xs font-medium transition-colors text-brand-navy/60 hover:bg-brand-navy/5">
+                    <svg class="h-3.5 w-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="12" r="2"/><line x1="15" y1="10" x2="17" y2="10"/><line x1="15" y1="14" x2="17" y2="14"/></svg>
+                    Visa Assistance
+                  </button>
+                  <button type="button" data-tab="custom" class="flex items-center gap-1 whitespace-nowrap rounded-xl px-2.5 py-2 text-xs font-medium transition-colors text-brand-navy/60 hover:bg-brand-navy/5">
+                    <svg class="h-3.5 w-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.9 4.1L6 9l4.1 1.9L12 15l1.9-4.1L18 9l-4.1-1.9L12 3Z"/><path d="M5 3v4M3 5h4M19 17v4M17 19h4"/></svg>
+                    Custom Trip
+                  </button>
+                </div>
+
+                <div class="p-3 sm:p-4">
+                  <form data-tab-panel="packages" action="/packages" method="GET" class="grid gap-3 sm:grid-cols-2">
+                    <input name="q" placeholder="Where do you want to go?" class="w-full rounded-lg border border-brand-navy/15 px-4 py-3 text-sm text-brand-navy placeholder:text-brand-navy/40 focus:outline-none focus:ring-2 focus:ring-brand-cyan/50" />
+                    <select name="category" class="w-full rounded-lg border border-brand-navy/15 px-4 py-3 text-sm text-brand-navy focus:outline-none focus:ring-2 focus:ring-brand-cyan/50">
+                      <option value="">All categories</option>
+                      <option value="Hajj &amp; Umrah">Hajj &amp; Umrah</option>
+                      <option value="City">City</option>
+                      <option value="Safari">Safari</option>
+                    </select>
+                    <button type="submit" class="rounded-lg bg-gradient-to-r from-brand-blue to-brand-cyan px-6 py-3 text-sm font-semibold text-white hover:opacity-90 transition-opacity whitespace-nowrap sm:col-span-2">Search packages</button>
+                  </form>
+
+                  <form data-tab-panel="hajj" action="/packages" method="GET" class="hidden flex-col gap-3">
+                    <input type="hidden" name="category" value="Hajj &amp; Umrah" />
+                    <p class="text-sm text-brand-navy/60">All-inclusive Hajj &amp; Umrah packages — flights, hotels near the Haram, and visa handling included.</p>
+                    <button type="submit" class="rounded-lg bg-gradient-to-r from-brand-blue to-brand-cyan px-6 py-3 text-sm font-semibold text-white hover:opacity-90 transition-opacity whitespace-nowrap">View Hajj &amp; Umrah packages</button>
+                  </form>
+
+                  <form data-tab-panel="visa" action="/request" method="GET" class="hidden flex-col gap-3">
+                    <input type="hidden" name="context" value="visa" />
+                    <input name="destination" placeholder="Which country do you need a visa for?" class="w-full rounded-lg border border-brand-navy/15 px-4 py-3 text-sm text-brand-navy placeholder:text-brand-navy/40 focus:outline-none focus:ring-2 focus:ring-brand-cyan/50" />
+                    <button type="submit" class="rounded-lg bg-gradient-to-r from-brand-blue to-brand-cyan px-6 py-3 text-sm font-semibold text-white hover:opacity-90 transition-opacity whitespace-nowrap">Get started</button>
+                  </form>
+
+                  <form data-tab-panel="custom" action="/request" method="GET" class="hidden flex-col gap-3">
+                    <p class="text-sm text-brand-navy/60">Tell us your dream trip — dates, budget, must-see stops — and we&rsquo;ll build the itinerary around you.</p>
+                    <button type="submit" class="rounded-lg bg-gradient-to-r from-brand-blue to-brand-cyan px-6 py-3 text-sm font-semibold text-white hover:opacity-90 transition-opacity whitespace-nowrap">Start planning</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="border-y border-brand-navy/10 bg-brand-navy/[0.03]">
+        <div class="mx-auto max-w-6xl px-6 py-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <div data-reveal class="reveal flex flex-col gap-2">
+            <svg class="h-6 w-6 text-brand-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="22" x2="21" y2="22"/><line x1="6" y1="18" x2="6" y2="11"/><line x1="10" y1="18" x2="10" y2="11"/><line x1="14" y1="18" x2="14" y2="11"/><line x1="18" y1="18" x2="18" y2="11"/><polygon points="12 2 20 7 4 7"/></svg>
+            <h3 class="font-semibold text-brand-navy text-sm">Hajj &amp; Umrah specialists</h3>
+            <p class="text-sm text-brand-navy/60">Packages built around the Haram, not generic city tours.</p>
+          </div>
+          <div data-reveal data-reveal-delay="0.06" class="reveal flex flex-col gap-2">
+            <svg class="h-6 w-6 text-brand-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.1 2.1 0 0 1 3 3L12 15l-4 1 1-4Z"/></svg>
+            <h3 class="font-semibold text-brand-navy text-sm">Itineraries built around you</h3>
+            <p class="text-sm text-brand-navy/60">No package fits? Send a custom request and we&rsquo;ll design one.</p>
+          </div>
+          <div data-reveal data-reveal-delay="0.12" class="reveal flex flex-col gap-2">
+            <svg class="h-6 w-6 text-brand-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11Z"/><path d="m9 12 2 2 4-4"/></svg>
+            <h3 class="font-semibold text-brand-navy text-sm">Secure online payment</h3>
+            <p class="text-sm text-brand-navy/60">Pay confidently once your booking is confirmed and priced.</p>
+          </div>
+          <div data-reveal data-reveal-delay="0.18" class="reveal flex flex-col gap-2">
+            <svg class="h-6 w-6 text-brand-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1v-8h3Z"/><path d="M3 19a2 2 0 0 0 2 2h1v-8H3Z"/></svg>
+            <h3 class="font-semibold text-brand-navy text-sm">A real team behind every trip</h3>
+            <p class="text-sm text-brand-navy/60">Your booking is reviewed and processed by our staff, not a bot.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="mx-auto max-w-6xl px-6 py-16 w-full">
+        <div data-reveal class="reveal">
+          <h2 class="text-2xl font-semibold text-brand-navy mb-8">Explore our services</h2>
+        </div>
+        <div data-services-track class="relative grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div data-reveal class="reveal">
+            <a data-service-card href="/packages?category=Hajj+%26+Umrah" class="group flex flex-col gap-3 rounded-xl border border-brand-navy/10 p-5 h-full hover:border-brand-cyan/50 hover:shadow-lg hover:shadow-brand-blue/5 transition-all">
+              <div class="flex h-11 w-11 items-center justify-center rounded-lg bg-gradient-to-br from-brand-blue to-brand-cyan text-white group-hover:scale-105 transition-transform">
+                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="22" x2="21" y2="22"/><line x1="6" y1="18" x2="6" y2="11"/><line x1="10" y1="18" x2="10" y2="11"/><line x1="14" y1="18" x2="14" y2="11"/><line x1="18" y1="18" x2="18" y2="11"/><polygon points="12 2 20 7 4 7"/></svg>
+              </div>
+              <h3 class="font-semibold text-brand-navy">Hajj &amp; Umrah</h3>
+              <p class="text-sm text-brand-navy/60">Flights, Haram-area hotels, and visa handled end to end.</p>
+            </a>
+          </div>
+          <div data-reveal data-reveal-delay="0.05" class="reveal">
+            <a data-service-card href="/packages?category=City" class="group flex flex-col gap-3 rounded-xl border border-brand-navy/10 p-5 h-full hover:border-brand-cyan/50 hover:shadow-lg hover:shadow-brand-blue/5 transition-all">
+              <div class="flex h-11 w-11 items-center justify-center rounded-lg bg-gradient-to-br from-brand-blue to-brand-cyan text-white group-hover:scale-105 transition-transform">
+                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <h3 class="font-semibold text-brand-navy">City Breaks</h3>
+              <p class="text-sm text-brand-navy/60">Short, well-paced itineraries in the world&rsquo;s great cities.</p>
+            </a>
+          </div>
+          <div data-reveal data-reveal-delay="0.1" class="reveal">
+            <a data-service-card href="/packages?category=Safari" class="group flex flex-col gap-3 rounded-xl border border-brand-navy/10 p-5 h-full hover:border-brand-cyan/50 hover:shadow-lg hover:shadow-brand-blue/5 transition-all">
+              <div class="flex h-11 w-11 items-center justify-center rounded-lg bg-gradient-to-br from-brand-blue to-brand-cyan text-white group-hover:scale-105 transition-transform">
+                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 3 4 8 5-5 5 15H2L8 3Z"/></svg>
+              </div>
+              <h3 class="font-semibold text-brand-navy">Safaris &amp; Tours</h3>
+              <p class="text-sm text-brand-navy/60">Guided adventures with experienced local rangers.</p>
+            </a>
+          </div>
+          <div data-reveal data-reveal-delay="0.15" class="reveal">
+            <a data-service-card href="/request?context=visa" class="group flex flex-col gap-3 rounded-xl border border-brand-navy/10 p-5 h-full hover:border-brand-cyan/50 hover:shadow-lg hover:shadow-brand-blue/5 transition-all">
+              <div class="flex h-11 w-11 items-center justify-center rounded-lg bg-gradient-to-br from-brand-blue to-brand-cyan text-white group-hover:scale-105 transition-transform">
+                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="12" r="2"/><line x1="15" y1="10" x2="17" y2="10"/><line x1="15" y1="14" x2="17" y2="14"/></svg>
+              </div>
+              <h3 class="font-semibold text-brand-navy">Visa Assistance</h3>
+              <p class="text-sm text-brand-navy/60">Tell us where you&rsquo;re headed — we&rsquo;ll handle the paperwork.</p>
+            </a>
+          </div>
+          <div data-reveal data-reveal-delay="0.2" class="reveal">
+            <a data-service-card href="/request?context=hotel" class="group flex flex-col gap-3 rounded-xl border border-brand-navy/10 p-5 h-full hover:border-brand-cyan/50 hover:shadow-lg hover:shadow-brand-blue/5 transition-all">
+              <div class="flex h-11 w-11 items-center justify-center rounded-lg bg-gradient-to-br from-brand-blue to-brand-cyan text-white group-hover:scale-105 transition-transform">
+                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4v16"/><path d="M2 8h18a2 2 0 0 1 2 2v10"/><path d="M2 17h20"/><path d="M6 8v9"/></svg>
+              </div>
+              <h3 class="font-semibold text-brand-navy">Hotel Booking</h3>
+              <p class="text-sm text-brand-navy/60">We&rsquo;ll find and book the right stay for your trip.</p>
+            </a>
+          </div>
+          <div data-reveal data-reveal-delay="0.25" class="reveal">
+            <a data-service-card href="/request" class="group flex flex-col gap-3 rounded-xl border border-brand-navy/10 p-5 h-full hover:border-brand-cyan/50 hover:shadow-lg hover:shadow-brand-blue/5 transition-all">
+              <div class="flex h-11 w-11 items-center justify-center rounded-lg bg-gradient-to-br from-brand-blue to-brand-cyan text-white group-hover:scale-105 transition-transform">
+                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+              </div>
+              <h3 class="font-semibold text-brand-navy">Custom Itinerary</h3>
+              <p class="text-sm text-brand-navy/60">Have something specific in mind? We&rsquo;ll build it around you.</p>
+            </a>
+          </div>
+
+          <div data-services-mascot class="services-mascot pointer-events-none absolute left-0 top-0 z-20" aria-hidden="true">
+            <svg viewBox="0 0 64 92" width="56" height="80" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="mascotTorso" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stop-color="#2f6fe0" />
+                  <stop offset="1" stop-color="#1c3fa8" />
+                </linearGradient>
+              </defs>
+              <ellipse cx="32" cy="88" rx="14" ry="3.2" fill="rgba(10,17,48,0.15)" />
+              <g class="mascot-body-bob">
+                <rect x="15" y="34" width="6" height="20" rx="3" fill="#0a1130" />
+                <g class="mascot-leg-l"><rect x="23" y="54" width="7" height="24" rx="3.5" fill="#101d54" /></g>
+                <g class="mascot-leg-r"><rect x="34" y="54" width="7" height="24" rx="3.5" fill="#101d54" /></g>
+                <rect x="19" y="30" width="26" height="26" rx="9" fill="url(#mascotTorso)" />
+                <circle cx="32" cy="16" r="11" fill="#f2c19d" />
+                <path d="M21 13a11 11 0 0 1 22 0c0-3-2-7-11-7s-11 4-11 7Z" fill="#1c130a" />
+                <g class="mascot-arm-r">
+                  <rect x="41" y="34" width="6" height="18" rx="3" fill="#0a1130" />
+                  <g class="mascot-glass">
+                    <circle cx="50" cy="30" r="5" fill="none" stroke="#7fdcff" stroke-width="2.4" />
+                    <line x1="53.5" y1="33.5" x2="58" y2="38" stroke="#7fdcff" stroke-width="2.4" stroke-linecap="round" />
+                  </g>
+                </g>
+              </g>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <section class="mx-auto max-w-6xl px-6 py-16 w-full">
+        <div data-reveal class="reveal flex items-center justify-between mb-8">
+          <h2 class="text-2xl font-semibold text-brand-navy">Featured packages</h2>
+          <a href="/packages" class="text-sm font-medium text-brand-blue hover:text-brand-cyan transition-colors">View all &rarr;</a>
+        </div>
+        <div data-featured-packages class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <p class="text-brand-navy/60">Loading packages…</p>
+        </div>
+      </section>
+
+      <section class="border-t border-brand-navy/10 bg-brand-navy/[0.03]">
+        <div class="mx-auto max-w-6xl px-6 py-16 grid gap-8 sm:grid-cols-3">
+          <div data-reveal class="reveal flex flex-col gap-3 rounded-2xl border border-brand-navy/10 bg-white p-5 shadow-sm hover:border-brand-cyan/50 hover:shadow-lg hover:shadow-brand-blue/5 transition-all">
+            <div class="step-scene" aria-hidden="true">
+              <svg viewBox="0 0 220 110" class="h-full w-full">
+                <defs>
+                  <linearGradient id="stepTorso1" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0" stop-color="#2f6fe0" />
+                    <stop offset="1" stop-color="#1c3fa8" />
+                  </linearGradient>
+                </defs>
+                <g transform="translate(0,8)">
+                  <ellipse cx="26" cy="80" rx="16" ry="3.2" fill="rgba(10,17,48,0.12)" />
+                  <g class="scene-figure-bob">
+                    <rect x="17" y="52" width="7" height="24" rx="3.5" fill="#101d54" />
+                    <rect x="28" y="52" width="7" height="24" rx="3.5" fill="#101d54" />
+                    <rect x="14" y="32" width="6" height="18" rx="3" fill="#0a1130" />
+                    <rect x="20" y="30" width="24" height="24" rx="9" fill="url(#stepTorso1)" />
+                    <circle cx="32" cy="18" r="10" fill="#f2c19d" />
+                    <path d="M22 15a10 10 0 0 1 20 0c0-3-2-6-10-6s-10 3-10 6Z" fill="#1c130a" />
+                    <rect x="42" y="30" width="6" height="16" rx="3" fill="#2f6fe0" transform="rotate(-24 42 30)" />
+                  </g>
+                  <circle class="scene1-tap" cx="66" cy="28" r="6" fill="#34b8f0" />
+                </g>
+
+                <rect x="88" y="10" width="112" height="90" rx="12" fill="#ffffff" stroke="#0a1130" stroke-opacity="0.1" />
+                <rect class="scene1-highlight" x="98" y="20" width="92" height="22" rx="8" fill="rgba(52,184,240,0.18)" stroke="#34b8f0" stroke-width="1.6" />
+                <g fill="#0a1130" fill-opacity="0.35">
+                  <circle cx="108" cy="31" r="4" />
+                  <rect x="118" y="28" width="52" height="3.5" rx="1.75" />
+                  <rect x="118" y="34.5" width="34" height="3.5" rx="1.75" />
+                  <circle cx="108" cy="57" r="4" />
+                  <rect x="118" y="54" width="52" height="3.5" rx="1.75" />
+                  <rect x="118" y="60.5" width="34" height="3.5" rx="1.75" />
+                  <circle cx="108" cy="83" r="4" />
+                  <rect x="118" y="80" width="52" height="3.5" rx="1.75" />
+                  <rect x="118" y="86.5" width="34" height="3.5" rx="1.75" />
+                </g>
+              </svg>
+            </div>
+            <span class="text-sm font-semibold text-brand-cyan">1</span>
+            <h3 class="font-semibold text-brand-navy">Choose or request</h3>
+            <p class="text-sm text-brand-navy/60">Pick a package or tell us your dream trip.</p>
+          </div>
+          <div data-reveal data-reveal-delay="0.1" class="reveal flex flex-col gap-3 rounded-2xl border border-brand-navy/10 bg-white p-5 shadow-sm hover:border-brand-cyan/50 hover:shadow-lg hover:shadow-brand-blue/5 transition-all">
+            <div class="step-scene" aria-hidden="true">
+              <svg viewBox="0 0 220 110" class="h-full w-full">
+                <defs>
+                  <linearGradient id="stepTorso2" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0" stop-color="#2f6fe0" />
+                    <stop offset="1" stop-color="#1c3fa8" />
+                  </linearGradient>
+                  <linearGradient id="terminalGrad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0" stop-color="#1c3fa8" />
+                    <stop offset="1" stop-color="#0a1130" />
+                  </linearGradient>
+                </defs>
+                <g transform="translate(0,8)">
+                  <ellipse cx="26" cy="80" rx="16" ry="3.2" fill="rgba(10,17,48,0.12)" />
+                  <g class="scene-figure-bob">
+                    <rect x="17" y="52" width="7" height="24" rx="3.5" fill="#101d54" />
+                    <rect x="28" y="52" width="7" height="24" rx="3.5" fill="#101d54" />
+                    <rect x="14" y="32" width="6" height="18" rx="3" fill="#0a1130" />
+                    <rect x="20" y="30" width="24" height="24" rx="9" fill="url(#stepTorso2)" />
+                    <circle cx="32" cy="18" r="10" fill="#f2c19d" />
+                    <path d="M22 15a10 10 0 0 1 20 0c0-3-2-6-10-6s-10 3-10 6Z" fill="#1c130a" />
+                    <g class="scene2-card-group">
+                      <rect x="42" y="34" width="6" height="16" rx="3" fill="#2f6fe0" transform="rotate(-10 42 34)" />
+                      <rect x="60" y="40" width="22" height="14" rx="3" fill="#7fdcff" transform="rotate(-10 71 47)" />
+                      <path class="scene2-wave" d="M92 44a14 14 0 0 1 0 12" stroke="#34b8f0" stroke-width="2" fill="none" stroke-linecap="round" />
+                      <path class="scene2-wave scene2-wave-delay" d="M98 40a20 20 0 0 1 0 20" stroke="#34b8f0" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.6" />
+                    </g>
+                  </g>
+                </g>
+
+                <rect x="140" y="34" width="36" height="52" rx="8" fill="url(#terminalGrad)" />
+                <rect x="146" y="42" width="24" height="20" rx="3" fill="#0a1130" />
+                <path class="scene2-check" d="M151 52.5l4 4 9-9" stroke="#7fdcff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+                <rect x="150" y="68" width="16" height="4" rx="2" fill="#0a1130" fill-opacity="0.4" />
+              </svg>
+            </div>
+            <span class="text-sm font-semibold text-brand-cyan">2</span>
+            <h3 class="font-semibold text-brand-navy">Pay securely</h3>
+            <p class="text-sm text-brand-navy/60">Once we confirm the details, pay online in a few clicks.</p>
+          </div>
+          <div data-reveal data-reveal-delay="0.2" class="reveal flex flex-col gap-3 rounded-2xl border border-brand-navy/10 bg-white p-5 shadow-sm hover:border-brand-cyan/50 hover:shadow-lg hover:shadow-brand-blue/5 transition-all">
+            <div class="step-scene" aria-hidden="true">
+              <svg viewBox="0 0 220 110" class="h-full w-full">
+                <ellipse cx="49" cy="41" rx="13" ry="9" fill="#1c3fa8" />
+                <circle cx="49" cy="30" r="9" fill="#f2c19d" />
+                <path d="M40.5 27a8.5 8.5 0 0 1 17 0c0-2.6-1.7-5-8.5-5s-8.5 2.4-8.5 5Z" fill="#1c130a" />
+                <rect x="14" y="76" width="66" height="6" rx="2" fill="#101d54" />
+                <rect x="30" y="40" width="38" height="30" rx="4" fill="#0a1130" />
+                <rect x="33" y="43" width="32" height="24" rx="2" fill="#12224f" />
+                <rect class="scene3-type-a" x="37" y="49" width="20" height="3" rx="1.5" fill="#7fdcff" />
+                <rect class="scene3-type-a" x="37" y="55" width="14" height="3" rx="1.5" fill="#7fdcff" />
+
+                <ellipse cx="171" cy="41" rx="13" ry="9" fill="#1c3fa8" />
+                <circle cx="171" cy="30" r="9" fill="#e3ab84" />
+                <path d="M162.5 27a8.5 8.5 0 0 1 17 0c0-2.6-1.7-5-8.5-5s-8.5 2.4-8.5 5Z" fill="#1c130a" />
+                <rect x="140" y="76" width="66" height="6" rx="2" fill="#101d54" />
+                <rect x="152" y="40" width="38" height="30" rx="4" fill="#0a1130" />
+                <rect x="155" y="43" width="32" height="24" rx="2" fill="#12224f" />
+                <rect class="scene3-type-b" x="159" y="49" width="22" height="3" rx="1.5" fill="#34b8f0" />
+                <rect class="scene3-type-b" x="159" y="55" width="16" height="3" rx="1.5" fill="#34b8f0" />
+
+                <g transform="translate(70,44) scale(0.9)">
+                  <g class="scene3-plane">
+                    <path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2.5 1.5V22l4-1 4 1v-1.5L13 19v-5.5l8 2.5z" fill="#34b8f0" />
+                  </g>
+                </g>
+              </svg>
+            </div>
+            <span class="text-sm font-semibold text-brand-cyan">3</span>
+            <h3 class="font-semibold text-brand-navy">We handle the rest</h3>
+            <p class="text-sm text-brand-navy/60">Our team processes everything and sends your itinerary.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <div data-include="/partials/footer.html"></div>
+
+  <script type="module" src="/js/include-partials.js"></script>
+  <script type="module" src="/js/pages/home.js"></script>
+</body>
+</html>

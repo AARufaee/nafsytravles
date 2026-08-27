@@ -1,0 +1,411 @@
+@import "tailwindcss";
+
+@source "../site";
+@source "../public/js";
+@source "../public/partials";
+
+:root {
+  --background: #ffffff;
+  --foreground: #0a1130;
+
+  /* Brand palette, sampled from the Nafsy Travels logo */
+  --brand-navy: #0a1130;
+  --brand-navy-2: #101d54;
+  --brand-blue: #1c3fa8;
+  --brand-blue-light: #2f6fe0;
+  --brand-cyan: #34b8f0;
+  --brand-cyan-light: #7fdcff;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-brand-navy: var(--brand-navy);
+  --color-brand-navy-2: var(--brand-navy-2);
+  --color-brand-blue: var(--brand-blue);
+  --color-brand-blue-light: var(--brand-blue-light);
+  --color-brand-cyan: var(--brand-cyan);
+  --color-brand-cyan-light: var(--brand-cyan-light);
+  --font-sans: Geist, ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, monospace;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-14px); }
+}
+
+.animate-float-slow {
+  animation: float-slow 6s ease-in-out infinite;
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 50s linear infinite;
+}
+
+@keyframes orbit-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-orbit-spin {
+  animation: orbit-spin 28s linear infinite;
+}
+
+@keyframes orbit-spin-reverse {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+.animate-orbit-spin-reverse {
+  animation: orbit-spin-reverse 21s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-float-slow,
+  .animate-spin-slow,
+  .animate-orbit-spin,
+  .animate-orbit-spin-reverse {
+    animation: none;
+  }
+}
+
+/* Vanilla-JS replacement for Framer Motion's whileInView fade+slide-up
+   (src/components/reveal.tsx in the old React app). Driven by
+   IntersectionObserver toggling .is-visible — see public/js/reveal.js. */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Replacement for PackageCard's whileHover={{ y: -6 }}. */
+.package-card-hover {
+  transition: transform 0.2s ease;
+}
+
+.package-card-hover:hover {
+  transform: translateY(-6px);
+}
+
+/* City/package labels that live directly on each hero-globe pin, fading in
+   as it rotates into view and out as it rotates away — see hero-globe.js
+   updatePinLabels. Positioned via inline transform each frame, so layout
+   here is only visual styling. */
+.globe-city-label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.3rem 0.65rem;
+  border-radius: 0.85rem;
+  background: rgba(10, 17, 48, 0.68);
+  border: 1px solid rgba(127, 220, 255, 0.4);
+  backdrop-filter: blur(4px);
+  color: #fff;
+  white-space: nowrap;
+  will-change: transform, opacity;
+  transition: opacity 0.15s linear;
+}
+
+.globe-city-label::before {
+  content: "";
+  flex-shrink: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
+  background: var(--brand-cyan-light);
+  box-shadow: 0 0 6px 2px rgba(127, 220, 255, 0.8);
+}
+
+.globe-city-label-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.globe-city-label-title {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.globe-city-label-sub {
+  font-size: 0.62rem;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+/* Pin photo card: wraps the shuffling destination scene (see
+   data/destination-scenes.js and hero-globe.js createPinCard) above the
+   .globe-city-label caption. */
+.globe-pin-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 132px;
+  will-change: transform, opacity;
+  transition: opacity 0.15s linear;
+}
+
+.globe-pin-photo {
+  width: 100%;
+  aspect-ratio: 8 / 5;
+  border-radius: 0.7rem;
+  overflow: hidden;
+  border: 1px solid rgba(127, 220, 255, 0.35);
+  box-shadow: 0 8px 20px rgba(10, 17, 48, 0.35);
+  background: #0a1130;
+  margin-bottom: 0.4rem;
+}
+
+.globe-pin-scene {
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  transition: opacity 0.26s ease;
+}
+
+.globe-pin-scene.is-swapping {
+  opacity: 0;
+}
+
+.globe-pin-scene svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Traveler mascot on the "Explore our services" grid — walks over to
+   whichever card is hovered/focused (or scrolled to on touch), see
+   public/js/services-mascot.js. */
+.services-mascot {
+  width: 56px;
+  height: 80px;
+  opacity: 0;
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.5s ease;
+  filter: drop-shadow(0 6px 10px rgba(10, 17, 48, 0.18));
+}
+
+.services-mascot.is-visible {
+  opacity: 1;
+}
+
+.mascot-body-bob {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  animation: mascot-bob 0.9s ease-in-out infinite;
+}
+
+@keyframes mascot-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-2px); }
+}
+
+.mascot-leg-l,
+.mascot-leg-r {
+  transform-box: fill-box;
+  transform-origin: 50% 0%;
+  animation: mascot-leg-swing 0.9s ease-in-out infinite;
+}
+
+.mascot-leg-r {
+  animation-delay: 0.45s;
+}
+
+@keyframes mascot-leg-swing {
+  0%, 100% { transform: rotate(13deg); }
+  50% { transform: rotate(-13deg); }
+}
+
+.mascot-arm-r {
+  transform-box: fill-box;
+  transform-origin: 50% 0%;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.is-checking .mascot-arm-r {
+  transform: rotate(-70deg);
+}
+
+.mascot-glass {
+  opacity: 0;
+  transition: opacity 0.3s ease 0.1s;
+}
+
+.is-checking .mascot-glass {
+  opacity: 1;
+}
+
+/* "How it works" step illustrations (choose / pay / we handle the rest). */
+.step-scene {
+  width: 100%;
+  height: 108px;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(10, 17, 48, 0.08);
+  background: linear-gradient(180deg, rgba(52, 184, 240, 0.07), rgba(28, 63, 168, 0.03));
+  overflow: hidden;
+}
+
+.scene-figure-bob {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  animation: scene-figure-bob 2.4s ease-in-out infinite;
+}
+
+@keyframes scene-figure-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-2px); }
+}
+
+/* Step 1: highlight glides down the option list, tap pulse over the figure's hand. */
+.scene1-highlight {
+  transform-box: fill-box;
+  animation: scene1-scan 4.5s ease-in-out infinite;
+}
+
+@keyframes scene1-scan {
+  0%, 20% { transform: translateY(0); }
+  33%, 53% { transform: translateY(26px); }
+  66%, 86% { transform: translateY(52px); }
+  100% { transform: translateY(0); }
+}
+
+.scene1-tap {
+  transform-box: fill-box;
+  transform-origin: 50% 50%;
+  animation: scene1-tap-ping 1.6s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@keyframes scene1-tap-ping {
+  0% { transform: scale(0.8); opacity: 0.6; }
+  70%, 100% { transform: scale(1.7); opacity: 0; }
+}
+
+/* Step 2: card taps toward the terminal, contactless waves pulse, checkmark confirms. */
+.scene2-card-group {
+  transform-box: fill-box;
+  transform-origin: 0% 50%;
+  animation: scene2-tap 2.2s ease-in-out infinite;
+}
+
+@keyframes scene2-tap {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(8px); }
+}
+
+.scene2-wave {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: scene2-wave 1.8s ease-out infinite;
+}
+
+.scene2-wave-delay {
+  animation-delay: 0.4s;
+}
+
+@keyframes scene2-wave {
+  0% { opacity: 0.7; transform: scale(0.7); }
+  100% { opacity: 0; transform: scale(1.3); }
+}
+
+.scene2-check {
+  opacity: 0;
+  animation: scene2-check 2.2s ease-in-out infinite;
+}
+
+@keyframes scene2-check {
+  0%, 45% { opacity: 0; }
+  55%, 80% { opacity: 1; }
+  95%, 100% { opacity: 0; }
+}
+
+/* Step 3: laptop screens "type" out of sync, a paper plane sends the itinerary. */
+.scene3-type-a,
+.scene3-type-b {
+  animation: scene3-type 1.8s steps(1) infinite;
+}
+
+.scene3-type-b {
+  animation-delay: 0.9s;
+}
+
+@keyframes scene3-type {
+  0%, 40% { opacity: 1; }
+  50%, 90% { opacity: 0.25; }
+  100% { opacity: 1; }
+}
+
+.scene3-plane {
+  animation: scene3-fly 3.2s ease-in-out infinite;
+}
+
+@keyframes scene3-fly {
+  0% { transform: translate(0, 0); opacity: 0; }
+  10% { opacity: 1; }
+  70% { transform: translate(70px, -34px); opacity: 1; }
+  85% { opacity: 0; }
+  100% { transform: translate(70px, -34px); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
+  .package-card-hover {
+    transition: none;
+  }
+  .globe-city-label,
+  .globe-pin-card {
+    transition: none;
+  }
+  .globe-pin-scene {
+    transition: none;
+  }
+  .services-mascot {
+    transition: opacity 0.3s ease;
+  }
+  .mascot-body-bob,
+  .mascot-leg-l,
+  .mascot-leg-r {
+    animation: none;
+  }
+  .mascot-arm-r,
+  .mascot-glass {
+    transition: none;
+  }
+  .scene-figure-bob,
+  .scene1-highlight,
+  .scene1-tap,
+  .scene2-card-group,
+  .scene2-wave,
+  .scene2-check,
+  .scene3-type-a,
+  .scene3-type-b,
+  .scene3-plane {
+    animation: none;
+  }
+  .scene1-tap,
+  .scene2-wave {
+    opacity: 0;
+  }
+  .scene2-check {
+    opacity: 1;
+  }
+}
