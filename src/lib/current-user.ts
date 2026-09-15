@@ -8,6 +8,7 @@ export type AppUser = {
   name: string | null;
   role: Role;
   allowedPages: string[] | null;
+  createdAt: string;
 };
 
 function adminEmails(): Set<string> {
@@ -45,7 +46,7 @@ export async function getCurrentAppUser(): Promise<AppUser | null> {
     insert into app_users (id, email, name, role)
     values (${authUser.id}, ${email}, ${authUser.name ?? null}, ${shouldBeAdmin ? "admin" : "user"})
     on conflict (id) do update set email = excluded.email, name = excluded.name
-    returning id, email, name, role, allowed_pages as "allowedPages"
+    returning id, email, name, role, allowed_pages as "allowedPages", created_at as "createdAt"
   `) as AppUser[];
 
   let row = rows[0];
@@ -53,7 +54,7 @@ export async function getCurrentAppUser(): Promise<AppUser | null> {
   if (shouldBeAdmin && row.role !== "admin") {
     const updated = (await sql`
       update app_users set role = 'admin' where id = ${authUser.id}
-      returning id, email, name, role, allowed_pages as "allowedPages"
+      returning id, email, name, role, allowed_pages as "allowedPages", created_at as "createdAt"
     `) as AppUser[];
     row = updated[0];
   }

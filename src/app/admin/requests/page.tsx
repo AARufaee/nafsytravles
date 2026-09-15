@@ -6,6 +6,7 @@ import { sql } from "@/lib/db";
 import PageHeader from "@/components/ui/PageHeader";
 import Table from "@/components/ui/Table";
 import Badge from "@/components/ui/Badge";
+import { STATUS_LABEL, STATUS_TONE } from "@/lib/request-status";
 
 export const dynamic = "force-dynamic";
 
@@ -16,18 +17,6 @@ type RequestRow = {
   guest_email: string;
   status: string;
   created_at: string;
-};
-
-const STATUS_LABEL: Record<string, string> = {
-  new: "New",
-  in_progress: "In progress",
-  resolved: "Resolved",
-};
-
-const STATUS_TONE: Record<string, "info" | "warning" | "success"> = {
-  new: "info",
-  in_progress: "warning",
-  resolved: "success",
 };
 
 export default async function AdminRequestsPage({

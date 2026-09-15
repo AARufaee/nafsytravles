@@ -2,16 +2,29 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import type { NavItem } from "./nav-config";
 
-export default function Sidebar({ items }: { items: NavItem[] }) {
+export type SidebarNavItem = {
+  key: string;
+  label: string;
+  href: string;
+  // A pre-rendered element, not the component reference itself — component
+  // references (functions) can't be passed as props from a Server Component
+  // into a Client Component, but rendered React elements can.
+  icon: React.ReactNode;
+  badge?: number;
+};
+
+export default function Sidebar({ items }: { items: SidebarNavItem[] }) {
   const pathname = usePathname();
+  // The first item is treated as the section's "home" link, which only
+  // highlights on an exact match; every other item also highlights for
+  // nested routes underneath it (e.g. /admin/packages/new).
+  const rootHref = items[0]?.href;
 
   return (
     <nav className="flex flex-1 flex-col gap-1 px-3">
       {items.map((item) => {
-        const isActive =
-          item.href === "/admin" ? pathname === "/admin" : pathname.startsWith(item.href);
+        const isActive = item.href === rootHref ? pathname === item.href : pathname.startsWith(item.href);
 
         return (
           <Link

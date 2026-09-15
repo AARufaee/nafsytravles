@@ -4,9 +4,8 @@ import { useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import type { AppUser } from "@/lib/current-user";
-import type { NavItem } from "./nav-config";
-import Sidebar from "@/components/ui/Sidebar";
-import SignOutButton from "@/app/account/SignOutButton";
+import Sidebar, { type SidebarNavItem } from "@/components/ui/Sidebar";
+import SignOutButton from "../SignOutButton";
 
 // The logo's wordmark is dark navy and disappears on the sidebar's navy
 // background, so it sits on its own light plate (with the colors the logo
@@ -29,22 +28,20 @@ function UserCard({ user }: { user: AppUser }) {
       </div>
       <div className="min-w-0 flex-1">
         <p className="truncate text-sm font-medium text-white">{user.name ?? user.email}</p>
-        <p className="text-xs uppercase tracking-wide text-white/40">{user.role.replace("_", " ")}</p>
+        <p className="text-xs uppercase tracking-wide text-white/40">Customer</p>
       </div>
       <SignOutButton className="shrink-0 text-xs text-white/50 hover:text-white" />
     </div>
   );
 }
 
-export default function AdminShell({
+export default function AccountShell({
   user,
   nav,
-  canManage,
   children,
 }: {
   user: AppUser;
-  nav: NavItem[];
-  canManage: boolean;
+  nav: SidebarNavItem[];
   children: React.ReactNode;
 }) {
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -106,19 +103,12 @@ export default function AdminShell({
             <img src="/images/logo.png" alt="Nafsy Travels" className="h-7 w-auto" />
           </Link>
           <span className="rounded-full bg-brand-navy/5 px-3 py-1 text-xs uppercase tracking-wide text-brand-navy/60">
-            {user.role.replace("_", " ")}
+            Customer
           </span>
         </header>
 
         <main className="flex-1 px-4 py-6 sm:px-6 lg:px-8 lg:py-8">
-          <div className="mx-auto flex max-w-5xl flex-col gap-6">
-            {!canManage && (
-              <p className="rounded-lg bg-brand-cyan/10 px-4 py-2 text-sm text-brand-navy">
-                You have view-only access. Changes are disabled for your role.
-              </p>
-            )}
-            {children}
-          </div>
+          <div className="mx-auto flex max-w-5xl flex-col gap-6">{children}</div>
         </main>
       </div>
     </div>
