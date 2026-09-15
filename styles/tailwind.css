@@ -3,6 +3,8 @@
 @source "../site";
 @source "../public/js";
 @source "../public/partials";
+@source "../src/app";
+@source "../src/components";
 
 :root {
   --background: #ffffff;
@@ -26,8 +28,8 @@
   --color-brand-blue-light: var(--brand-blue-light);
   --color-brand-cyan: var(--brand-cyan);
   --color-brand-cyan-light: var(--brand-cyan-light);
-  --font-sans: Geist, ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "Geist Mono", ui-monospace, monospace;
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
 }
 
 body {

@@ -23,10 +23,38 @@ function run() {
 
   const form = document.querySelector("[data-request-form]");
   const successEl = document.querySelector("[data-request-success]");
-  form.addEventListener("submit", (e) => {
+  const errorEl = document.querySelector("[data-request-error]");
+
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
+    errorEl?.classList.add("hidden");
+
+    const data = new FormData(form);
+    const payload = {
+      destination: data.get("destination"),
+      guestName: data.get("guestName"),
+      guestEmail: data.get("guestEmail"),
+      guestPhone: data.get("guestPhone"),
+      travelDate: data.get("travelDate"),
+      travelersCount: data.get("travelersCount"),
+      notes: data.get("notes"),
+      context: context || null,
+    };
+
     form.querySelectorAll("input, textarea, button").forEach((field) => (field.disabled = true));
-    successEl.classList.remove("hidden");
+
+    try {
+      const res = await fetch("/api/requests", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      if (!res.ok) throw new Error("Request failed");
+      successEl.classList.remove("hidden");
+    } catch {
+      form.querySelectorAll("input, textarea, button").forEach((field) => (field.disabled = false));
+      if (errorEl) errorEl.classList.remove("hidden");
+    }
   });
 }
 

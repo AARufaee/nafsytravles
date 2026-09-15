@@ -1,6 +1,7 @@
 // Injects the shared header/footer markup into every static page, then
 // initializes the widgets that live inside them (mobile nav).
 import { initHeaderNav } from "./header-nav.js";
+import "./auth-nav.js";
 
 async function includePartial(node) {
   const src = node.getAttribute("data-include");
