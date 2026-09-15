@@ -51,8 +51,10 @@ export default function AdminShell({
 
   return (
     <div className="flex min-h-screen bg-brand-navy/[0.02]">
-      {/* Desktop sidebar */}
-      <aside className="hidden w-64 shrink-0 flex-col bg-brand-navy lg:flex">
+      {/* Desktop sidebar — sticky at a fixed viewport height so it never
+          stretches to match a long page; it stays put while the content
+          scrolls beside it. */}
+      <aside className="sticky top-0 hidden h-screen w-64 shrink-0 flex-col bg-brand-navy lg:flex">
         <Link href="/" className="flex items-center px-6 py-6">
           <SidebarLogo />
         </Link>
