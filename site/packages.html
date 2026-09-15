@@ -12,9 +12,9 @@
   <main class="flex-1 flex flex-col">
     <div class="mx-auto max-w-6xl px-6 py-16 w-full flex-1">
       <div class="mb-8">
-        <h1 class="text-3xl font-semibold text-brand-navy">Travel packages</h1>
+        <h1 data-editable="packages.heading" class="text-3xl font-semibold text-brand-navy">Travel packages</h1>
         <p class="mt-2 text-brand-navy/60">
-          Pick one to book, or <a href="/request" class="underline">request something custom</a>.
+          <span data-editable="packages.description">Pick one to book, or</span> <a href="/request" class="underline">request something custom</a>.
         </p>
       </div>
 
@@ -30,5 +30,6 @@
 
   <script type="module" src="/js/include-partials.js"></script>
   <script type="module" src="/js/pages/packages.js"></script>
+  <script src="/js/edit-affordance.js" defer></script>
 </body>
 </html>

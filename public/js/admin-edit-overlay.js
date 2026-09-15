@@ -205,13 +205,15 @@ function init() {
     document.querySelectorAll("[data-block-field][contenteditable='true']").length > 0;
   if (!hasEditableContent) return;
 
+  const exitHref = location.pathname;
+
   const bar = document.createElement("div");
   bar.innerHTML = `
     <div style="position:fixed;bottom:16px;right:16px;z-index:9999;display:flex;align-items:center;gap:12px;
       background:#0a1130;color:#fff;padding:10px 16px;border-radius:12px;font:500 13px system-ui, sans-serif;
       box-shadow:0 10px 30px rgba(0,0,0,0.25);">
-      <span>Editing landing page — <span data-edit-status style="opacity:0.7">click any highlighted text to edit</span></span>
-      <a href="/admin" style="color:#7fdcff;text-decoration:none;font-weight:600;">Exit editing</a>
+      <span>Editing this page — <span data-edit-status style="opacity:0.7">click any highlighted text to edit</span></span>
+      <a href="${exitHref}" style="color:#7fdcff;text-decoration:none;font-weight:600;">Exit editing</a>
     </div>
   `;
   document.body.appendChild(bar);

@@ -10,6 +10,8 @@ export const EDITABLE_KEYS = [
   "how.2.body",
   "how.3.title",
   "how.3.body",
+  "packages.heading",
+  "packages.description",
 ] as const;
 
 export type EditableKey = (typeof EDITABLE_KEYS)[number];
