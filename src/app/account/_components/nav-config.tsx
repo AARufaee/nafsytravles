@@ -22,8 +22,8 @@ const LABELS: Record<AccountNavKey, string> = {
 const HREFS: Record<AccountNavKey, string> = {
   overview: "/account",
   bookings: "/account/bookings",
-  newRequest: "/request",
-  packages: "/packages",
+  newRequest: "/account/request",
+  packages: "/account/packages",
   admin: "/admin",
 };
 

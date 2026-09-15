@@ -103,7 +103,7 @@ export default async function AccountPage() {
           ))}
           {requests.length === 0 && (
             <p className="text-sm text-brand-navy/50">
-              No requests yet. <Link href="/request" className="text-brand-blue hover:underline">Submit one</Link>.
+              No requests yet. <Link href="/account/request" className="text-brand-blue hover:underline">Submit one</Link>.
             </p>
           )}
         </div>

@@ -41,7 +41,7 @@ export default async function AccountBookingsPage() {
 
       {requests.length === 0 ? (
         <p className="rounded-lg border border-dashed border-brand-navy/15 p-6 text-center text-sm text-brand-navy/50">
-          No requests yet. <Link href="/request" className="text-brand-blue hover:underline">Submit one</Link>.
+          No requests yet. <Link href="/account/request" className="text-brand-blue hover:underline">Submit one</Link>.
         </p>
       ) : (
         <div className="flex flex-col gap-3">
